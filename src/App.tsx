@@ -1,8 +1,10 @@
-import React from 'react';
-import './App.css';
+import { FC } from 'react';
+import { AppRouting } from './AppRouting';
 
-export const App = () => (
+export const App: FC = () => (
   <div className='App'>
-    <header className='App-header'>Hello User!</header>
+    <header>Header</header>
+    <AppRouting />
+    <footer>Footer</footer>
   </div>
 );
