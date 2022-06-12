@@ -1,21 +1,36 @@
 import { FC } from 'react';
-import { Controller, FormProvider, useForm } from 'react-hook-form';
-import { Input, Label, DatePicker, ButtonContainer, InputNumber } from '../common/UI/forms.styles';
+import { useHistory } from 'react-router-dom';
+import { Controller, useFormContext } from 'react-hook-form';
 import { Button, Space } from 'antd';
-import { ErrorMessage } from '../common/components/ErrorMessage';
-import { dateFormat, requiredField } from '../common/constants';
-import { disableFuture } from '../common/utils';
-import { UserFormData } from './UserForm.interface';
+import { ButtonContainer, DatePicker, Input, InputNumber, Label } from '../common/UI/forms.styles';
+import { ErrorMessage } from '../common/components/ErrorMessage/ErrorMessage';
+import { dateFormat, ErrorMessages } from '../common/constants';
+import { disableFuture, fieldFormatting } from '../common/utils';
+import { useDateValidation } from './useDateValidation';
+import { useUserContext } from '../UserContext/UserContext';
+import { UserFormData } from '../UserContext/UserContext.interface';
+import { Routes } from '../AppRouting';
 import * as S from './UserForm.styles';
 
 export const UserForm: FC = () => {
+  const history = useHistory();
   const {
     handleSubmit,
     control,
-    formState: { errors },
-  } = useForm({ mode: 'onSubmit' });
+    watch,
+    errors,
+    formState: { isDirty },
+  } = useFormContext();
+  const {
+    setUser,
+    user: { firstName, lastName, email, phone, birthday, about, avatar },
+  } = useUserContext();
+  const { checkIfDateIsTooOld } = useDateValidation();
 
-  const onSubmit = () => console.log('submit');
+  const onSubmit = (data: UserFormData) => {
+    setUser(data);
+    history.push(`/${Routes.USER_PROFILE}`);
+  };
 
   return (
     <S.Form onSubmit={handleSubmit(onSubmit)} id='user-form' aria-labelledby='user-form' noValidate>
@@ -25,34 +40,40 @@ export const UserForm: FC = () => {
           <Controller
             control={control}
             name='firstName'
-            defaultValue=''
+            defaultValue={firstName}
             rules={{ required: true }}
             render={(props) => <Input iserror={errors.firstName} {...{ ...props }} />}
           />
-          {errors.firstName && <ErrorMessage message={requiredField} />}
+          {errors.firstName && <ErrorMessage message={ErrorMessages.requiredField} />}
         </div>
         <div>
           <Label htmlFor='lastName'>Last name*</Label>
           <Controller
             control={control}
             name='lastName'
-            defaultValue=''
+            defaultValue={lastName}
             rules={{ required: true }}
             render={(props) => <Input iserror={errors.lastName} {...{ ...props }} />}
           />
-          {errors.lastName && <ErrorMessage message={requiredField} />}
-          {console.log(errors)}
+          {errors.lastName && <ErrorMessage message={ErrorMessages.requiredField} />}
         </div>
         <div>
           <Label htmlFor='email'>Email</Label>
-          <Controller control={control} name='email' defaultValue='' render={(props) => <Input {...{ ...props }} />} />
+          <Controller
+            control={control}
+            name='email'
+            defaultValue={email}
+            rules={{ pattern: fieldFormatting.EMAIL }}
+            render={(props) => <Input iserror={errors.email} {...{ ...props }} />}
+          />
+          {errors.email && <ErrorMessage message={ErrorMessages.emailFormat} />}
         </div>
         <div>
           <Label htmlFor='phone'>Phone</Label>
           <Controller
             control={control}
             name='phone'
-            defaultValue=''
+            defaultValue={phone}
             render={(props) => <InputNumber max={999999999} {...{ ...props }} />}
           />
         </div>
@@ -61,11 +82,35 @@ export const UserForm: FC = () => {
           <Controller
             control={control}
             name='birthday'
-            defaultValue=''
+            defaultValue={birthday}
+            rules={{ validate: () => checkIfDateIsTooOld('birthday') }}
             render={(props) => (
               <DatePicker disabledDate={disableFuture} format={dateFormat} placeholder={dateFormat} {...{ ...props }} />
             )}
           />
+          {errors.birthday && <ErrorMessage message={ErrorMessages.tooOld} />}
+        </div>
+        <div>
+          <Label htmlFor='about'>About</Label>
+          <Controller
+            control={control}
+            name='about'
+            defaultValue={about}
+            render={(props) => (
+              <Input.TextArea
+                rows={4}
+                maxLength={200}
+                showCount
+                autoSize={{ minRows: 3, maxRows: 6 }}
+                {...{ ...props }}
+              />
+            )}
+          />
+        </div>
+        <div>
+          <Label htmlFor='avatar'>Avatar URL</Label>
+          <Controller control={control} name='avatar' defaultValue={avatar} render={(props) => <Input {...{ ...props }} />} />
+          {isDirty && !watch('avatar') && <S.P>consider adding also a cool avatar :)</S.P>}
         </div>
         <ButtonContainer>
           <Button type='primary' htmlType='submit'>

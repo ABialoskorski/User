@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { ExclamationCircleFilled as ExclamationCircleFilledAnt } from '@ant-design/icons';
-import { Colors, FontSize } from '../UI/cssVariables';
+import { Colors, FontSize } from '../../UI/cssVariables';
 
 export const ErrorMessageDiv = styled.div`
   display: flex;
@@ -19,8 +19,7 @@ export const ExclamationCircle = styled(ExclamationCircleFilledAnt)`
   margin-right: 1rem;
 `;
 
-export const MessageWrapper = styled.div`
+export const MessageWrapper = styled.p`
   display: flex;
   width: 100%;
-  justify-content: space-between;
 `;

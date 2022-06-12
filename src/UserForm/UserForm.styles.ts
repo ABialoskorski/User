@@ -6,3 +6,8 @@ export const Form = styled.form`
   align-items: center;
   justify-content: center;
 `;
+
+export const P = styled.p`
+  font-size: 1.4rem;
+  color: darkgreen;
+`;

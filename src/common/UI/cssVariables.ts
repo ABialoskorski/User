@@ -8,9 +8,9 @@ export const Colors = {
   white: '#ffffff',
   black: '#000000',
   primary: '#23614e',
-  secondary: '#4f8171',
   red: '#d00000',
   lightGrey: '#f2f2f2',
+  grey: '#696969',
 };
 
 export const size = {

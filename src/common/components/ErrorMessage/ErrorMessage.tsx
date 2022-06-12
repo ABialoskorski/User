@@ -4,7 +4,7 @@ import { ErrorMessageProps } from './ErrorMessage.interface';
 
 export const ErrorMessage: FC<ErrorMessageProps> = ({ message }) => {
   return (
-    <ErrorMessageDiv>
+    <ErrorMessageDiv data-testid='MsgContainer'>
       <ExclamationCircle />
       <MessageWrapper>{message}</MessageWrapper>
     </ErrorMessageDiv>
