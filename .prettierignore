@@ -1,0 +1,4 @@
+**/assets/**
+*.scss
+/public
+/node_modules
