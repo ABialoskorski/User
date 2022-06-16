@@ -11,11 +11,13 @@ export const Header = () => {
     <Nav>
       <Img src={LogoImage} alt='logo' />
       <Links>
-        {headerLinks.map(({ route, title }) => (
-          <Link to={`/${route}`} key={title} iscurrent={location.pathname.includes(route)}>
-            {title}
-          </Link>
-        ))}
+        {headerLinks.map(({ route, title }) =>
+          location.pathname.includes(route) ? (
+            <Link to={`/${route}`} key={title} iscurrent={true}>
+              {title}
+            </Link>
+          ) : null,
+        )}
       </Links>
     </Nav>
   );
