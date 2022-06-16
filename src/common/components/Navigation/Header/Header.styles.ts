@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
 import { Colors } from '../../../UI/cssVariables';
-import { LinkProps } from './Header.interface';
 
 export const Nav = styled.nav`
   position: sticky;
@@ -21,12 +19,7 @@ export const Img = styled.img`
   height: 4rem;
 `;
 
-export const Links = styled.div`
-  display: flex;
-  gap: 2rem;
-`;
-
-export const Link = styled(NavLink)<LinkProps>`
+export const Paragraph = styled.p`
   color: ${Colors.primary};
-  border-bottom: ${(props) => props.iscurrent && `0.2rem solid ${Colors.primary}`};
+  border-bottom: 0.2rem solid ${Colors.primary};
 `;

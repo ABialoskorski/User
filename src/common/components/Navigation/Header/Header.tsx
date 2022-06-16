@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import { Img, Link, Links, Nav } from './Header.styles';
+import { Img, Paragraph, Nav } from './Header.styles';
 import { default as LogoImage } from '../../../UI/assets/logo.svg';
 import { useNavigation } from '../useNavigation';
 
@@ -10,15 +10,13 @@ export const Header = () => {
   return (
     <Nav>
       <Img src={LogoImage} alt='logo' />
-      <Links>
         {headerLinks.map(({ route, title }) =>
           location.pathname.includes(route) ? (
-            <Link to={`/${route}`} key={title} iscurrent={true}>
+            <Paragraph key={title}>
               {title}
-            </Link>
+            </Paragraph>
           ) : null,
         )}
-      </Links>
     </Nav>
   );
 };
