@@ -15,6 +15,6 @@ export const App: FC = () => (
         <AppRouting />
       </AppContainer>
     </UserContextProvider>
-    {/*<Footer />*/}
+    <Footer />
   </div>
 );

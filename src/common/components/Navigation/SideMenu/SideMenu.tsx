@@ -19,7 +19,7 @@ export const SideMenu = () => {
   const { headerLinks } = useNavigation();
   const items: MenuItem[] = headerLinks.map(({ route, title, icon }) =>
     getItem(
-      <Link to={`/${route}`} key={title}>
+      <Link to={`/${route}`} key={route}>
         {title}
       </Link>,
       'link',

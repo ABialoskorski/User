@@ -6,7 +6,7 @@ export interface UserFormData {
   lastName: string;
   email?: string;
   phone?: string;
-  birthday?: Moment;
+  birthday?: Moment | null;
   about?: string;
   avatar?: string;
 }

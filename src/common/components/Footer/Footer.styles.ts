@@ -2,9 +2,7 @@ import styled from 'styled-components';
 import { Colors } from '../../UI/cssVariables';
 
 export const FooterStyled = styled.footer`
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  margin-top: auto;
   display: flex;
   width: 100%;
   color: ${Colors.white};

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { DatePicker as DatepickerAnt, Input as InputAnt, InputNumber as InputNumberAnt } from 'antd';
-import { Colors, FontSize, lineHeightDefault } from './cssVariables';
+import { Colors, FontSize, lineHeight } from './cssVariables';
 
 interface ErrorLabelProps {
   iserror?: boolean;
@@ -8,7 +8,7 @@ interface ErrorLabelProps {
 
 export const defaultText = css`
   font-size: ${FontSize.regular};
-  line-height: ${lineHeightDefault};
+  line-height: ${lineHeight};
   font-weight: 400;
 `;
 

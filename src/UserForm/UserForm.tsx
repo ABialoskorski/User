@@ -21,14 +21,17 @@ export const UserForm: FC = () => {
     errors,
     formState: { isDirty },
   } = useFormContext();
+
   const {
     setUser,
     user: { firstName, lastName, email, phone, birthday, about, avatar },
   } = useUserContext();
+
   const { checkIfDateIsTooOld } = useDateValidation();
 
   const onSubmit = (data: UserFormData) => {
     setUser(data);
+    sessionStorage.setItem('user', JSON.stringify(data));
     history.push(`/${Routes.USER_PROFILE}`);
   };
 
@@ -109,7 +112,12 @@ export const UserForm: FC = () => {
         </div>
         <div>
           <Label htmlFor='avatar'>Avatar URL</Label>
-          <Controller control={control} name='avatar' defaultValue={avatar} render={(props) => <Input {...{ ...props }} />} />
+          <Controller
+            control={control}
+            name='avatar'
+            defaultValue={avatar}
+            render={(props) => <Input {...{ ...props }} />}
+          />
           {isDirty && !watch('avatar') && <S.P>consider adding also a cool avatar :)</S.P>}
         </div>
         <ButtonContainer>

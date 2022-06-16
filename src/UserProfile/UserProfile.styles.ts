@@ -10,8 +10,13 @@ export const UserContainer = styled.div`
 `;
 
 export const Avatar = styled.img`
-  height: 24rem;
-  width: 24rem;
+  height: 32rem;
+  width: 32rem;
+  margin-bottom: 2rem;
+  @media screen and (max-width: 500px) {
+    height: 24rem;
+    width: 24rem;
+  }
 `;
 
 export const Description = styled.span`

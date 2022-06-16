@@ -11,7 +11,6 @@ export const Nav = styled.nav`
   justify-content: space-between;
   height: 6rem;
   padding: 2rem;
-  margin-bottom: 2rem;
   align-items: center;
   background-color: ${Colors.lightGrey};
   border-bottom: 0.4rem solid ${Colors.primary};

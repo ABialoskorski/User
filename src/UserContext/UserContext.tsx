@@ -1,8 +1,19 @@
 import { createContext, useContext, useState } from 'react';
 import { UserContextProviderInterface, UserFormData, UseUser } from './UserContext.interface';
+import moment from 'moment';
 
 export const useUser = (): UseUser => {
-  const [user, setUser] = useState<UserFormData>({} as UserFormData);
+  const userStorage =
+    typeof sessionStorage.getItem('user') === 'string' ? JSON.parse(sessionStorage.getItem('user') as string) : {};
+
+  const sessionUser: UserFormData | {} = Object.values(userStorage).length
+    ? {
+        ...userStorage,
+        birthday: userStorage.birthday ? moment(userStorage.birthday) : null,
+      }
+    : {};
+
+  const [user, setUser] = useState<UserFormData>(sessionUser as UserFormData);
 
   return {
     user,
