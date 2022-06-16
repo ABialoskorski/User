@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Colors } from '../common/UI/cssVariables';
 
 export const UserContainer = styled.div`
   display: flex;
@@ -11,4 +12,11 @@ export const UserContainer = styled.div`
 export const Avatar = styled.img`
   height: 24rem;
   width: 24rem;
+`;
+
+export const Description = styled.span`
+  font-size: 1.4rem;
+  border: 0.1rem dotted ${Colors.primary};
+  padding: 1rem;
+  word-break: break-word;
 `;

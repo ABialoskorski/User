@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { Colors } from '../../UI/cssVariables';
+import { Colors } from '../../../UI/cssVariables';
 import { LinkProps } from './Header.interface';
 
 export const Nav = styled.nav`
