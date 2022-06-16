@@ -9,7 +9,7 @@ export const ErrorMessageDiv = styled.div`
   background-color: ${Colors.red};
   border-radius: 0.4rem;
   width: 100%;
-    padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem;
   margin-bottom: 0.1rem;
   font-size: ${FontSize.regular};
 `;

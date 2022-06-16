@@ -8,7 +8,7 @@ beforeEach(() => {
   render(<ErrorMessage message={errMsg} />);
 });
 
-describe('ErrorMessage Component', () => {
+describe('ErrorMessage', () => {
   it('renders ErrorMessage with correct Message', () => {
     const messageWrapper = screen.getByText(errMsg);
 

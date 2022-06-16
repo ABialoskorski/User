@@ -14,10 +14,10 @@ export const AppRouting: FC = () => {
 
   return (
     <>
-        <Route exact path={`/${Routes.USER_PROFILE}`} component={UserProfile} />
-        <FormProvider {...methods}>
-          <Route exact path={`/${Routes.USER_FORM}`} component={UserForm} />
-        </FormProvider>
+      <Route exact path={`/${Routes.USER_PROFILE}`} component={UserProfile} />
+      <FormProvider {...methods}>
+        <Route exact path={`/${Routes.USER_FORM}`} component={UserForm} />
+      </FormProvider>
       <Redirect to={`/${Routes.USER_PROFILE}`} />
     </>
   );

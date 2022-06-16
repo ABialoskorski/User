@@ -1,4 +1,5 @@
 {
+  "homepage": "http://ABialoskorski.github.io/User",
   "name": "user",
   "version": "0.1.0",
   "private": true,
@@ -28,7 +29,9 @@
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --quiet",
     "lint-fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "prettier": "npx prettier --write . --config .prettierrc"
+    "prettier": "npx prettier --write . --config .prettierrc",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -49,13 +52,14 @@
     ]
   },
   "devDependencies": {
+    "@types/react-router-dom": "^5.1.8",
+    "@types/styled-components": "^5.1.11",
     "eslint": "^8.17.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "prettier": "^2.6.2",
-    "@types/react-router-dom": "^5.1.8",
-    "@types/styled-components": "^5.1.11"
+    "gh-pages": "^4.0.0",
+    "prettier": "^2.6.2"
   }
 }

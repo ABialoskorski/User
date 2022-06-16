@@ -2,3 +2,4 @@
 *.scss
 /public
 /node_modules
+/build

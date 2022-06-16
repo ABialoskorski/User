@@ -17,5 +17,5 @@ export interface UseUser {
 }
 
 export interface UserContextProviderInterface {
-  children: ReactNode
+  children: ReactNode;
 }
