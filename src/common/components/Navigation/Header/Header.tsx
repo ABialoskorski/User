@@ -10,13 +10,9 @@ export const Header = () => {
   return (
     <Nav>
       <Img src={LogoImage} alt='logo' />
-        {headerLinks.map(({ route, title }) =>
-          location.pathname.includes(route) ? (
-            <Paragraph key={title}>
-              {title}
-            </Paragraph>
-          ) : null,
-        )}
+      {headerLinks.map(({ route, title }) =>
+        location.pathname.includes(route) ? <Paragraph key={title}>{title}</Paragraph> : null,
+      )}
     </Nav>
   );
 };
