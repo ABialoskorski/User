@@ -1,0 +1,11 @@
+what assumptions did you make?
+- I have decided to use context API for storing user data because I find it a good option to connect it later to existing API, download the data and place them inside context. Data will be ready to use.
+- I've decided not to create reusable components such as Input etc. because in that size of application I see that as too much boilerplate for now.
+
+why did you decide to use specific techniques?
+- I've decided to use ant design and react hook form as I have worked with these libraries and I find them good to use for Form oriented apps
+
+what could be the alternative solutions?
+- I could use Redux instead of context API
+_ I could even resign from hook form and write everything by myself but it will cost more time
+- Instead of context Api I could use just a normal useState, but then structure of directories (who is parent, who is child) would be different than is right now.
