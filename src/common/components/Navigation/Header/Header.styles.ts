@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Colors } from '../../../UI/cssVariables';
+import { Colors } from '../../../UI/cssConstants';
 
 export const Nav = styled.nav`
   position: sticky;
@@ -10,8 +10,8 @@ export const Nav = styled.nav`
   height: 6rem;
   padding: 2rem;
   align-items: center;
-  background-color: ${Colors.lightGrey};
-  border-bottom: 0.4rem solid ${Colors.primary};
+  background-color: ${Colors.LIGHTGREY};
+  border-bottom: 0.4rem solid ${Colors.PRIMARY};
   z-index: 100;
 `;
 
@@ -20,6 +20,6 @@ export const Img = styled.img`
 `;
 
 export const Paragraph = styled.p`
-  color: ${Colors.primary};
-  border-bottom: 0.2rem solid ${Colors.primary};
+  color: ${Colors.PRIMARY};
+  border-bottom: 0.2rem solid ${Colors.PRIMARY};
 `;

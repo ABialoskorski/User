@@ -1,7 +1,6 @@
-import { FC } from 'react';
 import { FooterStyled } from './Footer.styles';
 
-export const Footer: FC = () => (
+export const Footer = () => (
   <FooterStyled>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis ultrices odio. Nullam interdum scelerisque
     dolor eu sollicitudin. Integer vehicula augue nec viverra luctus. Donec quam justo, interdum vel libero sit amet,

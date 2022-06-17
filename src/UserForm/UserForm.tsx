@@ -47,7 +47,7 @@ export const UserForm: FC = () => {
             rules={{ required: true }}
             render={(props) => <Input iserror={errors.firstName} {...{ ...props }} />}
           />
-          {errors.firstName && <ErrorMessage message={ErrorMessages.requiredField} />}
+          {errors.firstName && <ErrorMessage message={ErrorMessages.REQUIRED_FIELD} />}
         </div>
         <div>
           <Label htmlFor='lastName'>Last name*</Label>
@@ -58,7 +58,7 @@ export const UserForm: FC = () => {
             rules={{ required: true }}
             render={(props) => <Input iserror={errors.lastName} {...{ ...props }} />}
           />
-          {errors.lastName && <ErrorMessage message={ErrorMessages.requiredField} />}
+          {errors.lastName && <ErrorMessage message={ErrorMessages.REQUIRED_FIELD} />}
         </div>
         <div>
           <Label htmlFor='email'>Email</Label>
@@ -69,7 +69,7 @@ export const UserForm: FC = () => {
             rules={{ pattern: fieldFormatting.EMAIL }}
             render={(props) => <Input iserror={errors.email} {...{ ...props }} />}
           />
-          {errors.email && <ErrorMessage message={ErrorMessages.emailFormat} />}
+          {errors.email && <ErrorMessage message={ErrorMessages.EMAIL_FORMAT} />}
         </div>
         <div>
           <Label htmlFor='phone'>Phone</Label>
@@ -91,7 +91,7 @@ export const UserForm: FC = () => {
               <DatePicker disabledDate={disableFuture} format={dateFormat} placeholder={dateFormat} {...{ ...props }} />
             )}
           />
-          {errors.birthday && <ErrorMessage message={ErrorMessages.tooOld} />}
+          {errors.birthday && <ErrorMessage message={ErrorMessages.TOO_OLD} />}
         </div>
         <div>
           <Label htmlFor='about'>About</Label>

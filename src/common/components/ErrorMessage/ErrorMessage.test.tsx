@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { ErrorMessage } from './ErrorMessage';
-import { Colors } from '../../UI/cssVariables';
+import { Colors } from '../../UI/cssConstants';
 
 const errMsg = 'error message text';
 
@@ -19,7 +19,7 @@ describe('ErrorMessage', () => {
     const messageWrapper = screen.getByText(errMsg);
     const messageContainer = screen.getByTestId('MsgContainer');
 
-    expect(messageContainer).toHaveStyle(`background-color: ${Colors.red}`);
+    expect(messageContainer).toHaveStyle(`background-color: ${Colors.RED}`);
     expect(messageWrapper).toBeInTheDocument();
   });
 });

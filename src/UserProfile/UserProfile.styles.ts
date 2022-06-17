@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import { Colors } from '../common/UI/cssVariables';
+import { Colors } from '../common/UI/cssConstants';
 
 export const UserContainer = styled.div`
   display: flex;
   flex-flow: column wrap;
   align-items: center;
   width: 80%;
-  margin: auto;
+  margin: 2rem auto;
 `;
 
 export const Avatar = styled.img`
@@ -21,7 +21,7 @@ export const Avatar = styled.img`
 
 export const Description = styled.span`
   font-size: 1.4rem;
-  border: 0.1rem dotted ${Colors.primary};
+  border: 0.1rem dotted ${Colors.PRIMARY};
   padding: 1rem;
   word-break: break-word;
 `;
